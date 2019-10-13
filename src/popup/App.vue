@@ -1,6 +1,7 @@
 <template>
   <div>
-    <p>Hello world!</p>
+    <button>Button</button>
+    <p>Hello potato head</p>
   </div>
 </template>
 
