@@ -8,10 +8,10 @@ const { version } = require('./package.json');
 
 const config = {
   mode: process.env.NODE_ENV,
-  context: __dirname + '/src',
+  context: __dirname,
   entry: {
     'background': './background.js',
-    'popup/popup': './popup/popup.js',
+    'src/popup/popup': './src/popup/popup.js',
   },
   output: {
     path: __dirname + '/dist',
@@ -72,8 +72,8 @@ const config = {
       filename: '[name].css',
     }),
     new CopyWebpackPlugin([
-      { from: 'icons', to: 'icons', ignore: ['icon.xcf'] },
-      { from: 'popup/popup.html', to: 'popup/popup.html', transform: transformHtml },
+      { from: 'src/icons', to: 'src/icons', ignore: ['icon.xcf'] },
+      { from: 'src/popup/popup.html', to: 'src/popup/popup.html', transform: transformHtml },
       {
         from: 'manifest.json',
         to: 'manifest.json',
@@ -105,7 +105,7 @@ if (config.mode === 'production') {
 if (process.env.HMR === 'true') {
   config.plugins = (config.plugins || []).concat([
     new ExtensionReloader({
-      manifest: __dirname + '/src/manifest.json',
+      manifest: __dirname + '/manifest.json',
     }),
   ]);
 }
