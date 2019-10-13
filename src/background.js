@@ -1,3 +1,3 @@
-global.browser = require('webextension-polyfill')
-alert('Hello world!')
+//global.browser = require('webextension-polyfill')
+//alert('Hello world!')
 

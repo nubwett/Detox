@@ -1,19 +1,21 @@
 {
   "name": "detox",
-  "description": "A Vue.js web extension",
+  "description": "This extension will analyze a page and censor texts that are considered toxic or inappropriate.",
   "version": "1.0.0",
   "manifest_version": 2,
   "icons": {
     "48": "icons/icon_48.png",
     "128": "icons/icon_128.png"
   },
+    "options_ui": {
+        "page": "options/options.html",
+        "open_in_tab": true
+    },
   "browser_action": {
     "default_title": "detox",
     "default_popup": "popup/popup.html"
   },
   "background": {
-    "scripts": [
-      "background.js"
-    ]
+    "scripts": ["background.js"]
   }
 }
