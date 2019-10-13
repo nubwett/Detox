@@ -7,21 +7,23 @@
     "48": "src/icons/icon_48.png",
     "128": "src/icons/icon_128.png"
   },
-    "options_page": "options.html",
+  "options_page": "options.html",
   "browser_action": {
     "default_title": "detox",
-    "default_popup": "popup/popup.html"
+    "default_popup": "src/popup/popup.html"
   },
+  "content_security_policy": "script-src 'self' https://apis.google.com; object-src 'self'",
   "background": {
     "scripts": ["background.js"]
-  },  
+  },
   "content_scripts": [
     {
-      "matches": [
-        "https://*/*"
-      ],
-      "js": ["content.js"]
+      "matches": ["https://*/*"],
+      "js": ["content.mjs"]
     }
-  ]
-
+  ],
+  "permissions": [
+    "https://detox.cognitiveservices.azure.com/text/analytics/v2.1/sentiment"
+  ],
+  "web_accessible_resources": ["bundle.js"]
 }
